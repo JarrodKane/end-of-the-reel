@@ -1,3 +1,25 @@
+Tasty podcast site made with next.js, tailwindcss, and TypeScript
+
+Goal of this site was to get a modern clean podcast site, drawing a lot of inspiration from:
+[Here Be Monsters](https://www.hbmpodcast.com/)
+[Syntax.fm](https://syntax.fm/)
+
+This site grabs the RSS feed from Pinecast and then creates the pages for the episodes.
+Lots more to come
+
+## Stuff it has!
+
+- [ ] Next.js
+- [ ] tailwindscss
+- [ ] fonts loaded in
+- [ ] podcast feed
+
+### testing
+
+- [ ] snapshots
+- [ ] unit testing
+- [ ] interration testing
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
