@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans&family=Roboto&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-header;
+  }
+  h2 {
+    @apply font-header;
+  }
+  h3 {
+    @apply font-header;
+  }
+  p {
+    @apply font-body;
+  }
+}

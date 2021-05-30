@@ -6,9 +6,10 @@ import Base from "../components/templates/Base";
 
 export default function Home() {
   return (
+    // <div>asd</div>
     <Base>
       <nav>Here is the Nav element</nav>
-      <div className={`w-full md:w-auto`}>Image Header</div>
+      {/* <div className={`w-full md:w-auto`}>Image Header</div> */}
       <div>Search Bar here</div>
       <div>Episodes, one per row with breaks inbetween, max 3 on page</div>
       <div>Call to action thingy</div>
