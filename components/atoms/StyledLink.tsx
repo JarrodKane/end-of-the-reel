@@ -10,9 +10,9 @@ const StyledLink: React.FC<Props> = ({ text, url }) => {
   return (
     <Link href="/episodes">
       <div
-        className={`flex items-center bg-red-300 font-body cursor-pointer uppercase font-bold px-3 align-baseline`}
+        className={`flex items-center font-body cursor-pointer uppercase font-bold px-3 align-baseline text-gray-900 hover:text-pink-700`}
       >
-        Episodes
+        {text}
       </div>
     </Link>
   );
