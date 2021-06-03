@@ -26,7 +26,7 @@ export const getStaticProps = async () => {
 const Home: React.FC<Props> = ({ episodes, id }) => {
   //TODO: Allow for a choice of how many episodes they want shown on the homepage
   const newList = episodes.slice(0, 3);
-  console.log(newList);
+
   return (
     <Base>
       <div>Search Bar here</div>
