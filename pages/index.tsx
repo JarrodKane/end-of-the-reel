@@ -3,12 +3,8 @@ import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import Base from "../components/templates/Base";
 
-import { getEpisodes } from "./api/podcast";
-
 export default function Home() {
-  getEpisodes();
   return (
-    // <div>asd</div>
     <Base>
       {/* <div className={`w-full md:w-auto`}>Image Header</div> */}
       <div>Search Bar here</div>

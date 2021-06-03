@@ -18,6 +18,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 //   return response;
 // };
 
+// TODO: Change this so that it grabs the podcast variable name, this way other people can just use what
+// ever their name is for their podcast and grab it rather than only getting my podcast
+
 // Changed to using async await syntax
 export const getEpisodes = async () => {
   try {
