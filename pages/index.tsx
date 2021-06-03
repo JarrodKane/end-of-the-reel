@@ -3,7 +3,10 @@ import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import Base from "../components/templates/Base";
 
+import { getEpisodes } from "./api/podcast";
+
 export default function Home() {
+  getEpisodes();
   return (
     // <div>asd</div>
     <Base>
