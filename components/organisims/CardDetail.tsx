@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Callout1 from "../molecules/callouts/Callout1";
+import Callout2 from "../molecules/callouts/Callout2";
 
 interface Props {
   title: string;
@@ -22,9 +23,9 @@ const CardEDetail: React.FC<Props> = ({
 }) => {
   let breakContent;
   if (postNumber === 0) {
-    breakContent = <Callout1>Break 1</Callout1>;
+    breakContent = <Callout1 />;
   } else if (postNumber === 1) {
-    breakContent = <div className={`bg-red-700 m-5`}>Break 2</div>;
+    breakContent = <Callout2 />;
   }
 
   return (
