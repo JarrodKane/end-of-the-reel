@@ -9,7 +9,7 @@ interface Props {}
 // Will need some basic chekcing in place to prevent people from spamming submissions
 const Callout2 = (props: Props) => {
   return (
-    <div className={` flex justify-center  relative my-16 shadow-lg`}>
+    <div className={` flex justify-center  relative  `}>
       <Image
         objectFit="cover"
         layout="fill"
@@ -21,7 +21,7 @@ const Callout2 = (props: Props) => {
       />
 
       <div
-        className={`p-4 m-16  bg-black opacity-75 h-52 text-white w-4/5  shadow-md rounded-md whitespace-pre-line text-base  md:text-lg flex flex-col justify-center items-center`}
+        className={`p-4 m-16  bg-black opacity-75 h-52 text-white w-4/5  rounded-md whitespace-pre-line text-base  md:text-lg flex flex-col justify-center items-center`}
       >
         <div
           className={`text-3xl text-center`}

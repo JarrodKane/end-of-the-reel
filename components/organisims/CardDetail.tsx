@@ -29,9 +29,9 @@ const CardEDetail: React.FC<Props> = ({
   }
 
   return (
-    <div className={` `}>
-      <div className={`m-5 bg-gray-100 `}>
-        <div className={`text-5xl  text-indigo-700 font-bold`}>
+    <div className={`bg-gray-100 shadow-sm `}>
+      <div className={`bg-white shadow-sm p-10 `}>
+        <div className={`text-4xl  text-indigo-700 font-bold`}>
           <Link href="#">{title}</Link>
         </div>
 

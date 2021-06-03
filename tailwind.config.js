@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: (theme) => ({
+        "eoth-pattern": "url('/images/EOTH.png')",
+      }),
       fontFamily: {
         header: ["Lato", "sans-serif"],
         body: ["Open Sans", "sans-serif"],

@@ -4,7 +4,7 @@ interface Props {}
 
 const Callout1 = (props: Props) => {
   return (
-    <div className={`container w-full flex h-64 relative my-16`}>
+    <div className={`container w-full flex h-64 relative mt-16 mb-24`}>
       <div
         className={`z-0 bg-red-700 h-4/5  text-indigo-50 text-4xl flex justify-center w-1/2 ml-4 md:ml-8  items-center p-5 whitespace-pre-line text-left shadow-md rounded-md  font-bold`}
       >
