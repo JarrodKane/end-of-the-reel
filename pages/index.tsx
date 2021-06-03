@@ -30,16 +30,19 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
   return (
     <Base>
       <div>Search Bar here</div>
-      {newList.map((episode) => (
-        <CardDetails
-          key={episode.id}
-          title={episode.title}
-          description={episode.content_html}
-          src={episode.attachments[0].url}
-          date={episode.date_published}
-        />
-      ))}
-      <div>Episodes, one per row with breaks inbetween, max 3 on page</div>
+      <div className="flex flex-col">
+        {newList.map((episode, i) => (
+          <CardDetails
+            key={episode.id}
+            postNumber={i}
+            title={episode.title}
+            description={episode.content_html}
+            src={episode.attachments[0].url}
+            date={episode.date_published}
+          />
+        ))}
+      </div>
+
       <div>Call to action thingy</div>
       <div>Footer information</div>
     </Base>
