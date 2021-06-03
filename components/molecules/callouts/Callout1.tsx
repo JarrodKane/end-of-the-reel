@@ -17,6 +17,7 @@ const Callout1 = (props: Props) => {
         {`From episode 44 we started to also record every podcast with video!
         
         Now you don't just have to hear us, but you can see us too!`}
+        {/* TODO: Make the button link to the youtube page */}
         <button
           className={` border border-white 4/5  md:w-3/5  p-2 m-2 mb-0 hover:bg-purple-500  transform duration-150 uppercase`}
         >
