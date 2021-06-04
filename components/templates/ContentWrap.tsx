@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import Nav from "../organisims/Nav";
 import Hero from "../molecules/Hero";
+import Footer from "../organisims/Footer";
 
 interface Props {}
 
@@ -15,6 +16,7 @@ const ContentWrap: React.FC<Props> = ({ children }) => {
       <Nav />
       <Hero path={router.pathname} />
       {children}
+      <Footer />
     </div>
   );
 };

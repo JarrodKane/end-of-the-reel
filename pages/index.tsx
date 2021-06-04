@@ -29,7 +29,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
 
   return (
     <Base>
-      <div>Search Bar here</div>
+      {/* TODO: Search bar <div>Search Bar here</div> */}
       <div className="flex flex-col">
         {newList.map((episode, i) => (
           <CardDetails
@@ -42,9 +42,6 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
           />
         ))}
       </div>
-
-      <div>Call to action thingy</div>
-      <div>Footer information</div>
     </Base>
   );
 };

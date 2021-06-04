@@ -8,22 +8,19 @@ interface Props {
   name: string;
   src: string;
   url: string;
+  width: number;
+  height: number;
 }
 
-const Icon: React.FC<Props> = ({ name, src, url }) => {
+const Icon: React.FC<Props> = ({ name, src, url, height, width }) => {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
+    <a href={url} target="_blank" rel="noopener noreferrer" className={`flex `}>
       <Image
         src={`/images/${src}`}
-        height={100}
-        width={100}
-        className={`fill-current text-blue-200`}
+        height={height}
+        width={width}
+        className={`fill-current text-blue-200 `}
       />
-      {/* <img
-        className={`flex items-center font-body cursor-pointer uppercase font-bold px-3 align-baseline fill-current text-green-600`}
-src={`/images/${src}`}
-        alt={name} 
-      /> */}
     </a>
   );
 };
