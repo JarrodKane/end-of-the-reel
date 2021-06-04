@@ -5,6 +5,8 @@ import LinkSlash from "../atoms/LinkSlash";
 import StyledLink from "../atoms/StyledLink";
 import SocialIcons from "../molecules/SocialIcons";
 
+// TODO: Make responsive Navbar for mobile, turn it into a hamburger
+
 interface Props {}
 
 const Nav: React.FC<Props> = ({}) => {
