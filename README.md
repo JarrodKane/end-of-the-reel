@@ -5,14 +5,28 @@ Goal of this site was to get a modern clean podcast site, drawing a lot of inspi
 [Syntax.fm](https://syntax.fm/)
 
 This site grabs the RSS feed from Pinecast and then creates the pages for the episodes.
-Lots more to come
+
+Eventually I would like to allow people to use this as a template for them to take and put in their own podcast from pinecast.
+I'll need to build a basic backend for them to sign into and do that work, that's a bit later down the track
 
 ## Stuff it has!
 
-- [ ] Next.js
-- [ ] tailwindscss
-- [ ] fonts loaded in
-- [ ] podcast feed
+- Next.js
+- tailwindscss
+- podcast feed
+- Polls
+
+# Todo
+
+- [ ] Main components
+  - Home
+  - Episodes
+  - Contact form
+  - About
+  - Polls
+- [ ] Responsive
+- [ ] Testing
+- [ ] CMS backend
 
 ### testing
 

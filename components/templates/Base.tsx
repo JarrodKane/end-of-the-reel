@@ -11,10 +11,10 @@ const Base: React.FC<Props> = ({ children }) => {
       <div className={`z-10 mt-14 shadow-lg h-full`}>
         <Content>{children}</Content>
         <div
-          className={` fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600`}
+          className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600`}
         >
           {/* TODO: Player Component */}
-          <div className={` bg-red-200 `}>Player</div>
+          <div className={`  bg-red-200 `}>Player</div>
         </div>
       </div>
       <div
