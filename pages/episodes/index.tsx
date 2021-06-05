@@ -27,7 +27,7 @@ const Podcast: React.FC<Props> = ({ episodes }) => {
   const newList = episodes.slice(0, 3);
 
   return (
-    <Base>
+    <div>
       {newList.map((episode) => (
         <div>{episode.title}</div>
       ))}
@@ -35,7 +35,7 @@ const Podcast: React.FC<Props> = ({ episodes }) => {
       <div>Episodes, one per row with breaks inbetween, max 3 on page</div>
       <div>Call to action thingy</div>
       <div>Footer information</div>
-    </Base>
+    </div>
   );
 };
 

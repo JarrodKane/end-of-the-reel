@@ -6,7 +6,7 @@ import Image from "next/image";
 import Callout1 from "../molecules/callouts/Callout1";
 import Callout2 from "../molecules/callouts/Callout2";
 
-import PlayIcon from "../atoms/PlayIcon";
+import PlayEpisode from "../molecules/PlayEpisode";
 
 interface Props {
   title: string;
@@ -44,11 +44,7 @@ const CardEDetail: React.FC<Props> = ({
         <div>{date}</div>
 
         <div className="flex w-full h-36 md:h-80 ">
-          <div className="w-1/2 bg-gray-500 rounded-l-md">
-            <div className={`w-full flex justify-center `}>
-              <PlayIcon />
-            </div>
-          </div>
+          <PlayEpisode src={src} />
           <div
             className={`fill-current bg-gray-700  relative  w-1/2 h-full rounded-r-md`}
           >
@@ -59,7 +55,7 @@ const CardEDetail: React.FC<Props> = ({
               alt={`Picture of End Of The Reel podcast`}
               // height={400}
               // width={400}
-              className={` filter saturate-150 rounded-md `}
+              className={` filter saturate-150 rounded-r-md `}
             />
           </div>
         </div>

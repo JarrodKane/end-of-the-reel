@@ -34,7 +34,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
   const newList = episodes.slice(0, 3);
 
   return (
-    <Base>
+    <>
       <div className="flex flex-col">
         {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
         {newList.map((episode, i) => {
@@ -66,7 +66,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
           );
         })}
       </div>
-    </Base>
+    </>
   );
 };
 
