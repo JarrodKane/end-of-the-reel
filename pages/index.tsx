@@ -1,8 +1,11 @@
+import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 // import styles from '../styles/Home.module.css'
-import Base from "../components/templates/Base";
+import Base from "../components/templates/Layout";
 import CardDetails from "../components/organisims/CardDetail";
+
+import { PlayerContext } from "../context/PlayerProvider";
 
 import { getEpisodes } from "./api/podcast";
 
@@ -26,12 +29,21 @@ export const getStaticProps = async () => {
 
 const Home: React.FC<Props> = ({ episodes, id }) => {
   //TODO: Allow for a choice of how many episodes they want shown on the homepage
-  console.log(episodes);
+
+  const { episode, changeEpisode } = useContext(PlayerContext);
+
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
 
   episodes = episodes.items;
   const newList = episodes.slice(0, 3);
+
+  // Checks on load if an episode is loaded in, if there are no episodes loaded in it'll load the most recent
+  useEffect(() => {
+    if (episode.length === 0) {
+      changeEpisode(newList[0].attachments[0].url);
+    }
+  }, []);
 
   return (
     <>
