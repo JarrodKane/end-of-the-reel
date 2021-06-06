@@ -31,22 +31,9 @@ const Podcast: React.FC<Props> = ({ episodes }) => {
 
   return (
     <>
-      <button
-        onClick={() =>
-          changeEpisode(
-            "https://pinecast.com/listen/9f38a31b-21ce-4dbb-9eba-4a8aadc7bfb4.mp3?source=jsonfeed&ext=asset.mp3"
-          )
-        }
-      >
-        Set episode
-      </button>
       {newList.map((episode) => (
         <div>{episode.title}</div>
       ))}
-      <div>Search Bar here</div>
-      <div>Episodes, one per row with breaks inbetween, max 3 on page</div>
-      <div>Call to action thingy</div>
-      <div>Footer information</div>
     </>
   );
 };

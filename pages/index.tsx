@@ -30,13 +30,18 @@ export const getStaticProps = async () => {
 const Home: React.FC<Props> = ({ episodes, id }) => {
   //TODO: Allow for a choice of how many episodes they want shown on the homepage
 
-  const { episode, changeEpisode } = useContext(PlayerContext);
+  const { episode, changeEpisode, changeEpisodeNew } =
+    useContext(PlayerContext);
 
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
 
   episodes = episodes.items;
   const newList = episodes.slice(0, 3);
+
+  const handleChangeEpisode = (src: string) => {
+    changeEpisodeNew(src);
+  };
 
   // Checks on load if an episode is loaded in, if there are no episodes loaded in it'll load the most recent
   useEffect(() => {
@@ -54,6 +59,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
             image = episode.image;
             return (
               <CardDetails
+                handleChangeEpisode={handleChangeEpisode}
                 key={episode.id}
                 postNumber={i}
                 title={episode.title}
@@ -67,6 +73,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
 
           return (
             <CardDetails
+              handleChangeEpisode={handleChangeEpisode}
               key={episode.id}
               postNumber={i}
               title={episode.title}

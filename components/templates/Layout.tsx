@@ -5,13 +5,9 @@ import Player from "../organisims/Player";
 interface Props {}
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const [episode, setEpisode] = useState<string>("");
-
-  const handleChangeEpisode = (src: string) => {};
-
   return (
     <div
-      className={`min-h-screen bg-eoth-pattern flex  justify-center pb-20  bg-repeat   `}
+      className={`min-h-screen bg-eoth-pattern flex  justify-center pb-20  bg-repeat `}
     >
       <div className={`z-10 mt-14 shadow-lg h-full`}>
         <Content>{children}</Content>

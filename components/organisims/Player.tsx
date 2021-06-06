@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { PlayerContext } from "../../context/PlayerProvider";
@@ -10,12 +10,37 @@ interface Props {}
 // That only leaves Contact and About that will need to call the API to only get the most recent episode to set
 
 const Player: React.FC<Props> = ({}) => {
-  const { episode, changeEpisode } = useContext(PlayerContext);
+  const { episode, episodeCur, changeEpisodeNew } = useContext(PlayerContext);
+  const [epSrc, setEpSrc] = useState(episode);
+
+  // Needed an audio ref because changing the src of the component does not actually update it
+  const audioRef = useRef();
+
+  const updateSong = (src: string) => {
+    changeEpisodeNew(src);
+    console.log(src);
+    setEpSrc(src);
+
+    console.log("RAN UPDAE");
+    audioRef.current.pause();
+    audioRef.current.load();
+    audioRef.current.play();
+  };
+
+  useEffect(() => {
+    if (episodeCur.length !== 0) {
+      updateSong(episodeCur);
+    }
+  }, [episodeCur]);
+
+  useEffect(() => {
+    setEpSrc(episode);
+  }, [episode]);
 
   return (
     <div className={`w-full  flex justify-center `}>
-      <audio controls className={`w-3/4 rounded-lg`}>
-        <source key={uuidv4()} src={episode} type="audio/mpeg" />
+      <audio ref={audioRef} controls className={`w-3/4 rounded-lg`}>
+        <source key={uuidv4()} src={epSrc} type="audio/mpeg" />
       </audio>
     </div>
   );

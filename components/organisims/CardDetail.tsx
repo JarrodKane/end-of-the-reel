@@ -15,6 +15,7 @@ interface Props {
   date: string;
   postNumber: number;
   image: string;
+  handleChangeEpisode: (src: any) => void;
 }
 
 const CardEDetail: React.FC<Props> = ({
@@ -24,6 +25,7 @@ const CardEDetail: React.FC<Props> = ({
   date,
   postNumber,
   image,
+  handleChangeEpisode,
 }) => {
   let breakContent;
   if (postNumber === 0) {
@@ -31,8 +33,6 @@ const CardEDetail: React.FC<Props> = ({
   } else if (postNumber === 1) {
     breakContent = <Callout2 />;
   }
-
-  console.log(image);
 
   return (
     <div className={`bg-gray-100 shadow-sm `}>
@@ -44,7 +44,7 @@ const CardEDetail: React.FC<Props> = ({
         <div>{date}</div>
 
         <div className="flex w-full h-36 md:h-80 ">
-          <PlayEpisode src={src} />
+          <PlayEpisode src={src} handleChangeEpisode={handleChangeEpisode} />
           <div
             className={`fill-current bg-gray-700  relative  w-1/2 h-full rounded-r-md`}
           >

@@ -9,11 +9,22 @@ This site grabs the RSS feed from Pinecast and then creates the pages for the ep
 Eventually I would like to allow people to use this as a template for them to take and put in their own podcast from pinecast.
 I'll need to build a basic backend for them to sign into and do that work, that's a bit later down the track
 
+### Cool Tech used
+
+- Netlify hosting
+- Next.js
+- react
+- TypeScript
+- Tailwindscss
+- UUID
+- simple-iocns
+- html-react-parser
+
 ## Stuff it has!
 
-- Next.js
-- tailwindscss
-- podcast feed
+- Static site generation
+- Responsive design
+- Persistent podcast player
 - Polls
 
 # Todo
