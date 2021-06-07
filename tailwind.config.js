@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "eoth-pattern": "url('/images/EOTH.png')",
+        "eotr-pattern": "url('/images/EOTR.png')",
       }),
       fontFamily: {
         header: ["Lato", "sans-serif"],
