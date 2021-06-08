@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import CardDetails from "../../components/organisims/CardDetail";
+import EpisodeGrid from "../../components/templates/EpisodeGrid";
 
 import { PlayerContext } from "../../context/PlayerProvider";
 
@@ -25,8 +26,8 @@ export const getStaticProps = async () => {
   };
 };
 
-const Episodes: React.FC<Props> = ({ episodes, id }) => {
-  //TODO: Allow for a choice of how many episodes they want shown on the homepage
+const Episodes = (props: Props) => {
+  let { episodes, id } = props;
 
   const { episode, changeEpisode, changeEpisodeNew } =
     useContext(PlayerContext);
@@ -35,7 +36,6 @@ const Episodes: React.FC<Props> = ({ episodes, id }) => {
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
 
   episodes = episodes.items;
-  const newList = episodes.slice(0, 3);
 
   const handleChangeEpisode = (src: string) => {
     changeEpisodeNew(src);
@@ -44,45 +44,13 @@ const Episodes: React.FC<Props> = ({ episodes, id }) => {
   // Checks on load if an episode is loaded in, if there are no episodes loaded in it'll load the most recent
   useEffect(() => {
     if (episode.length === 0) {
-      changeEpisode(newList[0].attachments[0].url);
+      changeEpisode(episodes[0].attachments[0].url);
     }
   }, []);
 
   return (
     <>
-      <div className="flex flex-col">
-        {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
-        {newList.map((episode, i) => {
-          if (episode.image !== undefined) {
-            image = episode.image;
-            return (
-              <CardDetails
-                handleChangeEpisode={handleChangeEpisode}
-                key={episode.id}
-                postNumber={i}
-                title={episode.title}
-                description={episode.content_html}
-                src={episode.attachments[0].url}
-                date={episode.date_published}
-                image={image}
-              />
-            );
-          }
-
-          return (
-            <CardDetails
-              handleChangeEpisode={handleChangeEpisode}
-              key={episode.id}
-              postNumber={i}
-              title={episode.title}
-              description={episode.content_html}
-              src={episode.attachments[0].url}
-              date={episode.date_published}
-              image={image}
-            />
-          );
-        })}
-      </div>
+      <EpisodeGrid episodes={episodes} image={image} />
     </>
   );
 };
