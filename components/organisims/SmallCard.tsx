@@ -37,35 +37,26 @@ const SmallCard = (props: Props) => {
   }
 
   return (
-    <div className={`w-full h-40 bg-gray-300 shadow-sm`}>
-      asd
-      {/* <div className={`bg-white shadow-sm p-10`}>
-        <div className={`text-4xl  text-indigo-700 font-bold`}>
+    <div
+      className={`w-full h-full bg-gray-200 shadow-sm rounded-b-lg hover:shadow-md border border-indigo-300 transform scale-100 hover:scale-102 duration-200 cursor-pointer`}
+    >
+      <div className={`fill-current bg-gray-700  relative  h-60   `}>
+        <Image
+          objectFit="cover"
+          layout="fill"
+          src={image}
+          alt={`Picture of End Of The Reel podcast`}
+          // height={400}
+          // width={400}
+          className={` filter saturate-150 `}
+        />
+      </div>
+      <div className={`flex flex-col items-center m-3`}>
+        <div className={`text-1xl  text-indigo-600 font-bold`}>
           <Link href="#">{title}</Link>
         </div>
-
         <div>{date}</div>
-
-        <div className="flex w-full h-36 md:h-80 ">
-          <PlayEpisode src={src} handleChangeEpisode={handleChangeEpisode} />
-          <div
-            className={`fill-current bg-gray-700  relative  w-1/2 h-full rounded-r-md`}
-          >
-            <Image
-              objectFit="cover"
-              layout="fill"
-              src={image}
-              alt={`Picture of End Of The Reel podcast`}
-              // height={400}
-              // width={400}
-              className={` filter saturate-150 rounded-r-md `}
-            />
-          </div>
-        </div>
-        <div className={`flex flex-row items-center justify-center`}>
-          <div className={`max-w-prose`}> {parse(description)}</div>
-        </div>
-      </div> */}
+      </div>
     </div>
   );
 };

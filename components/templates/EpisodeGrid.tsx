@@ -7,11 +7,13 @@ interface Props {
   image: string;
 }
 
+//TODO: Need to select the correct image to send, either the default of the episode image
+
 const EpisodeGrid = (props: Props) => {
   const { episodes, image } = props;
   console.log(episodes);
   return (
-    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2`}>
+    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5  m-5`}>
       {episodes.map((episode, i) => (
         <SmallCard
           //   handleChangeEpisode={handleChangeEpisode}
