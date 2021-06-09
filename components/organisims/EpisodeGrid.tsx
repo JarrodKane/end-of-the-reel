@@ -31,7 +31,9 @@ const EpisodeGrid = (props: Props) => {
   const { episodes, image } = props;
 
   return (
-    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5 p-5`}>
+    <div
+      className={`grid  grid-cols-1 sm:grid-cols-2 gap-5 p-5 bg-white shadow-sm`}
+    >
       {episodes.map((episode, i) => (
         <SmallCard
           //   handleChangeEpisode={handleChangeEpisode}

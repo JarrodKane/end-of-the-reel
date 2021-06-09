@@ -12,7 +12,7 @@ const ContentWrap: React.FC<Props> = ({ children }) => {
   const router = useRouter();
 
   return (
-    <div className={`w-full  bg-gray-100`}>
+    <div className={`w-full bg-gray-100`}>
       <Nav />
       <Hero path={router.pathname} />
       {children}

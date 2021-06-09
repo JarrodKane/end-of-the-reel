@@ -35,7 +35,7 @@ const CardEDetail: React.FC<Props> = ({
   }
 
   return (
-    <div className={`bg-gray-100 shadow-sm `}>
+    <div className={`bg-gray-200 shadow-sm `}>
       <div className={`bg-white shadow-sm p-10`}>
         <div className={`text-4xl  text-indigo-700 font-bold`}>
           <Link href="#">{title}</Link>

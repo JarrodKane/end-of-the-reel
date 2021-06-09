@@ -100,9 +100,9 @@ const Episodes = (props: Props) => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col w-full">
       <EpisodeGrid episodes={episodeList} image={image} />
-    </>
+    </div>
   );
 };
 

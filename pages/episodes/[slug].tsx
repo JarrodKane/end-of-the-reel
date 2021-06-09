@@ -1,5 +1,7 @@
 import React from "react";
 
+import CardEpisode from "../../components/organisims/Cards/CardEpisode";
+
 import { getEpisodes } from "../api/podcast";
 
 interface Props {
@@ -48,10 +50,27 @@ export const getStaticProps = async (props: Paths) => {
 };
 
 const Episode = (props: Props) => {
-  // let { title, content_html, date_published } = props.episode[0];
-  // const { url } = props.episode[0].attachments[0];
+  let { id, title, content_html, date_published } = props.episode[0];
+  const { url } = props.episode[0].attachments[0];
 
-  return <div>title</div>;
+  let image =
+    "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
+  // const image = "daf";
+
+  return (
+    <div className="flex flex-col w-full">
+      <CardEpisode
+        // handleChangeEpisode={handleChangeEpisode}
+        key={id}
+        postNumber={1}
+        title={title}
+        description={content_html}
+        src={url}
+        date={date_published}
+        image={image}
+      />
+    </div>
+  );
 };
 
 export default Episode;

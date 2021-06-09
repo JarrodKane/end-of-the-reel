@@ -10,7 +10,7 @@ interface Props {
 
 const SocialIcons: React.FC<Props> = ({ styles, width, height }) => {
   return (
-    <div className={`flex justify-between  ${styles} w-full`}>
+    <div className={`flex justify-between ${styles} w-full`}>
       <Icon
         width={width}
         height={height}
