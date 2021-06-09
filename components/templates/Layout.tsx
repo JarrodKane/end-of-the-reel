@@ -9,7 +9,9 @@ const Layout: React.FC<Props> = ({ children }) => {
     <div
       className={`min-h-screen bg-eotr-pattern flex  justify-center pb-20  bg-repeat `}
     >
-      <div className={`z-10 mt-14 shadow-lg h-full`}>
+      <div
+        className={`z-10 mt-14 shadow-lg h-full md:w-6/12 w-full flex justify-center  `}
+      >
         <Content>{children}</Content>
         <div
           className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600`}

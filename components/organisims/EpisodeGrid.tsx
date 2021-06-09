@@ -1,6 +1,6 @@
 import React from "react";
 
-import SmallCard from "../organisims/SmallCard";
+import SmallCard from "./Cards/SmallCard";
 
 interface Props {
   episodes: {};
@@ -13,7 +13,7 @@ const EpisodeGrid = (props: Props) => {
   const { episodes, image } = props;
   console.log(episodes);
   return (
-    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5  m-5`}>
+    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5 p-5`}>
       {episodes.map((episode, i) => (
         <SmallCard
           //   handleChangeEpisode={handleChangeEpisode}

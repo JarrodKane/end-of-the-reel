@@ -3,10 +3,10 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import Image from "next/image";
 
-import Callout1 from "../molecules/callouts/Callout1";
-import Callout2 from "../molecules/callouts/Callout2";
+import Callout1 from "../../molecules/callouts/Callout1";
+import Callout2 from "../../molecules/callouts/Callout2";
 
-import PlayEpisode from "../molecules/PlayEpisode";
+import PlayEpisode from "../../molecules/PlayEpisode";
 
 interface Props {
   title: string;

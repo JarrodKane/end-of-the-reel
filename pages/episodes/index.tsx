@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import CardDetails from "../../components/organisims/CardDetail";
-import EpisodeGrid from "../../components/templates/EpisodeGrid";
+import EpisodeGrid from "../../components/organisims/EpisodeGrid";
 
 import { PlayerContext } from "../../context/PlayerProvider";
 

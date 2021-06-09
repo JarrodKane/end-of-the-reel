@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 // import styles from '../styles/Home.module.css'
 import Base from "../components/templates/Layout";
-import CardDetails from "../components/organisims/CardDetail";
+import CardDetails from "../components/organisims/Cards/CardDetail";
 
 import { PlayerContext } from "../context/PlayerProvider";
 
@@ -52,7 +52,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
         {newList.map((episode, i) => {
           if (episode.image !== undefined) {
