@@ -14,17 +14,19 @@ const Player: React.FC<Props> = ({}) => {
   const [epSrc, setEpSrc] = useState(episode);
 
   // Needed an audio ref because changing the src of the component does not actually update it
-  const audioRef = useRef();
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const updateSong = (src: string) => {
     changeEpisodeNew(src);
     console.log(src);
     setEpSrc(src);
 
-    console.log("RAN UPDAE");
-    audioRef.current.pause();
-    audioRef.current.load();
-    audioRef.current.play();
+    if (audioRef.current !== null) {
+      console.log("RAN UPDAE");
+      audioRef.current.pause();
+      audioRef.current.load();
+      audioRef.current.play();
+    }
   };
 
   useEffect(() => {

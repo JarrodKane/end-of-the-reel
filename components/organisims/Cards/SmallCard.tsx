@@ -1,40 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import PlayEpisode from "../../molecules/PlayEpisode";
 
 interface Props {
-  title: string;
+  title: string | null;
   src: string;
   description: string;
   date: string;
   postNumber: number;
   image: string;
-  handleChangeEpisode: (src: any) => void;
+  // handleChangeEpisode: (src: any) => void;
 }
 
 const SmallCard = (props: Props) => {
   let {
-    title,
+    title = "",
     src,
     description,
     date,
     postNumber,
     image,
-    handleChangeEpisode,
+    // handleChangeEpisode,
   } = props;
 
-  // let breakContent;
-  // if (postNumber === 0) {
-  //   breakContent = <Callout1 />;
-  // } else if (postNumber === 1) {
-  //   breakContent = <Callout2 />;
-  // }
+  const [slug, setSlug] = useState("");
+
+  const router = useRouter();
+
+  // This will go through and get the slugs for each episode based off the title
+  // There needed to be a bit of checking that the slig is not null, and that the regex returns a string
+  useEffect(() => {
+    if (title !== null) {
+      let slugName: string | RegExpMatchArray | null;
+      slugName = title.match(/\w+/g);
+      if (slugName !== null) {
+        slugName = slugName.join("-");
+        setSlug(slugName);
+      }
+    }
+  }, []);
+
+  const handleEpisode = () => {
+    // e.preventDefault();
+    router.push(`episodes/${slug}`);
+  };
 
   return (
     <div
+      onClick={handleEpisode}
       className={`w-full h-full bg-gray-200 shadow-sm rounded-b-lg hover:shadow-md border border-indigo-300 transform scale-100 hover:scale-102 duration-200 cursor-pointer `}
     >
       <div className={`fill-current bg-gray-700  relative  h-60   `}>

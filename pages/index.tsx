@@ -10,9 +10,26 @@ import { PlayerContext } from "../context/PlayerProvider";
 import { getEpisodes } from "./api/podcast";
 
 // Fix up the prop types herre
+//TODO: Remove interfaces that are shared into a Interface file/folders
 interface Props {
-  episodes: { items: [] };
-  episodeList: [];
+  episodes: {
+    author: {};
+    description: string;
+    feed_url: string;
+    hoome_page_url: string;
+    icon: string;
+    items: [];
+    title: string;
+    version: string;
+    attachments: [
+      {
+        url: string;
+        duration_in_seconds: number;
+        mime_type: string;
+        size_in_bytes: number;
+      }
+    ];
+  };
   id: string;
 }
 
@@ -36,8 +53,9 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
 
-  episodes = episodes.items;
-  const newList = episodes.slice(0, 3);
+  let episodeList: Array<any> = [...episodes.items];
+
+  const newList = episodeList.slice(0, 3);
 
   const handleChangeEpisode = (src: string) => {
     changeEpisodeNew(src);

@@ -2,8 +2,26 @@ import React from "react";
 
 import SmallCard from "./Cards/SmallCard";
 
+interface Attatchments {
+  url: string;
+}
+
+// interface Props {
+//   episodes: [
+//     {
+//       id: string;
+//       title: string;
+//       content_html: any;
+//       attachments: [Attatchments];
+//       date_published: string;
+//     }
+//   ];
+//   image: string;
+// }
+
+// TODO: Remove the use of any
 interface Props {
-  episodes: {};
+  episodes: Array<any>;
   image: string;
 }
 
@@ -11,7 +29,7 @@ interface Props {
 
 const EpisodeGrid = (props: Props) => {
   const { episodes, image } = props;
-  console.log(episodes);
+
   return (
     <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5 p-5`}>
       {episodes.map((episode, i) => (

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import { PlayerContext } from "../../context/PlayerProvider";
 
-import { updateSong } from "../organisims/Player";
+// import { updateSong } from "../organisims/Player";
 
 interface Props {
   src: string;
