@@ -69,7 +69,7 @@ export const getStaticProps = async () => {
     props: {
       episodes: res,
     },
-    revalidate: 1,
+    // revalidate: 1,
   };
 };
 

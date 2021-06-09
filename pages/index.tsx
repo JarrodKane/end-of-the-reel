@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 // import styles from '../styles/Home.module.css'
 import Base from "../components/templates/Layout";
 import CardDetails from "../components/organisims/Cards/CardDetail";
@@ -40,7 +42,7 @@ export const getStaticProps = async () => {
     props: {
       episodes: res,
     },
-    revalidate: 1,
+    // revalidate: 1,
   };
 };
 

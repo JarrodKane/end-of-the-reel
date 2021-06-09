@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import Callout1 from "../../molecules/callouts/Callout1";
 import Callout2 from "../../molecules/callouts/Callout2";
@@ -34,11 +35,22 @@ const CardEDetail: React.FC<Props> = ({
     breakContent = <Callout2 />;
   }
 
+  const router = useRouter();
+
+  let episodeSlug: string | RegExpMatchArray | null = title.match(/\w+/g);
+  if (episodeSlug !== null) {
+    episodeSlug = episodeSlug.join("-");
+  }
+
+  const handleEpisode = () => {
+    router.push(`episodes/${episodeSlug}`);
+  };
+
   return (
     <div className={`bg-gray-200 shadow-sm `}>
       <div className={`bg-white shadow-sm p-10`}>
         <div className={`text-4xl  text-indigo-700 font-bold`}>
-          <Link href="#">{title}</Link>
+          <button onClick={handleEpisode}>{title}</button>
         </div>
 
         <div>{date}</div>

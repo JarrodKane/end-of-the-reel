@@ -9,6 +9,8 @@ const Header: React.FC<Props> = ({ path }) => {
   let pathSrc = path;
   let text = path;
 
+  // TODO: Change each of the hero images bassed on which page they are on
+
   switch (path) {
     case "/":
       pathSrc = "testing.jpg";
