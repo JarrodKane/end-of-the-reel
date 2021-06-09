@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+
+import { PlayerContext } from "../../context/PlayerProvider";
+import { getEpisodes } from "../api/podcast";
 
 import CardEpisode from "../../components/organisims/Cards/CardEpisode";
-
-import { getEpisodes } from "../api/podcast";
 
 interface Props {
   episode: any;
@@ -53,14 +54,29 @@ const Episode = (props: Props) => {
   let { id, title, content_html, date_published } = props.episode[0];
   const { url } = props.episode[0].attachments[0];
 
+  const { episode, changeEpisode, changeEpisodeNew } =
+    useContext(PlayerContext);
+
+  useEffect(() => {
+    if (episode.length !== 0) {
+      changeEpisode(url);
+    } else {
+      changeEpisode(url);
+    }
+  }, []);
+
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
   // const image = "daf";
 
+  const handleChangeEpisode = (src: string) => {
+    changeEpisodeNew(src);
+  };
+
   return (
     <div className="flex flex-col w-full">
       <CardEpisode
-        // handleChangeEpisode={handleChangeEpisode}
+        handleChangeEpisode={handleChangeEpisode}
         key={id}
         postNumber={1}
         title={title}

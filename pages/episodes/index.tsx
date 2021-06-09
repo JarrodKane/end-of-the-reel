@@ -86,16 +86,14 @@ const Episodes = (props: Props) => {
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
 
-  // const handleChangeEpisode = (src: string) => {
-  //   changeEpisodeNew(src);
-  // };
-
   // Checks on load if an episode is loaded in, if there are no episodes loaded in it'll load the most recent
   useEffect(() => {
     if (episode.length !== 0) {
       if (episodeList[0].attachments[0] !== undefined) {
         changeEpisode(episodeList[0].attachments[0].url);
       }
+    } else {
+      changeEpisode(episodeList[0].attachments[0].url);
     }
   }, []);
 

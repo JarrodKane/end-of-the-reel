@@ -1,9 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import Link from "next/link";
 import Image from "next/image";
-
-import PlayEpisode from "../../molecules/PlayEpisode";
 
 interface Props {
   title: string;
@@ -44,8 +41,17 @@ const CardEpisode = (props: Props) => {
       </div>
 
       <div>
-        <div className={`flex flex-row  justify-center p-2 `}>
-          <div className={`max-w-prose`}> {parse(description)}</div>
+        <div className={`flex flex-col pt-5 p-3 items-start`}>
+          <button
+            className={` p-2 rounded-lg shadow hover:shadow-md duration-500 bg-green-700 hover:bg-green-900 uppercase font-bold text-white  `}
+            onClick={() => {
+              handleChangeEpisode(src);
+            }}
+          >
+            Play Episode
+          </button>
+
+          <div className={`max-w-prose self-center`}> {parse(description)}</div>
         </div>
       </div>
     </div>
@@ -53,8 +59,3 @@ const CardEpisode = (props: Props) => {
 };
 
 export default CardEpisode;
-
-{
-  /* <PlayEpisode src={src} handleChangeEpisode={handleChangeEpisode} />
-<div */
-}

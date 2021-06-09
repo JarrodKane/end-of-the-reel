@@ -44,8 +44,8 @@ const SmallCard = (props: Props) => {
     }
   }, []);
 
+  // This handles the episode routing, it will send you to the episodes and then the converted title
   const handleEpisode = () => {
-    // e.preventDefault();
     router.push(`episodes/${slug}`);
   };
 
