@@ -14,7 +14,7 @@ const Modal = () => {
     //   // style={divStyle}
     // >
     <div
-      className={`fixed top-14 z-50 flex flex-col  justify-center text-5xl bg-red-500 w-full h-full `}
+      className={`fixed top-14 z-50 flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen `}
     >
       <ModalLink url="/episodes" text="Episodes" />
 

@@ -12,6 +12,7 @@ import Hamburger from "../atoms/svg/Hamburger";
 import NavTitle from "../atoms/NavTitle";
 import LinkSlash from "../atoms/LinkSlash";
 import StyledLink from "../atoms/StyledLink";
+import ModalLink from "../atoms/ModalLink";
 
 import SocialIcons from "../molecules/SocialIcons";
 
@@ -24,21 +25,43 @@ const Nav = (props: Props) => {
 
   const window = useWindowSize();
 
+  const Modal = () => {
+    return (
+      // <div
+      //   className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}
+      //   // style={divStyle}
+      // >
+      <div
+        className={`fixed top-14 z-50 flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen `}
+      >
+        <ModalLink url="/episodes" text="Episodes" />
+
+        <ModalLink url="/about" text="About" />
+
+        <ModalLink url="/contact" text="Contact" />
+      </div>
+      // </div>
+    );
+  };
+
   if (window.width !== undefined && window.width < 1024) {
     return (
-      <div
-        className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
-      >
+      <>
+        {isOpen ? <Modal /> : null}
         <div
-          className={`flex h-12 w-12 cursor-pointer`}
-          onClick={() => handleModal()}
+          className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
         >
-          <Hamburger />
+          <div
+            className={`flex h-12 w-12 cursor-pointer`}
+            onClick={() => handleModal()}
+          >
+            <Hamburger />
+          </div>
+          <div className={`flex w-full justify-center `}>
+            <NavTitle title="End of the Reel" url="/" />
+          </div>
         </div>
-        <div className={`flex w-full justify-center `}>
-          <NavTitle title="End of the Reel" url="/" />
-        </div>
-      </div>
+      </>
     );
   } else {
     return (
