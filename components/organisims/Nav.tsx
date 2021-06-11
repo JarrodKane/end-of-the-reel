@@ -35,7 +35,10 @@ const Nav = (props: Props) => {
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        <ModalTest />
+        {/* <ModalTest /> */}
+        <div className={`fixed top-14 z-30 bg-red-500 h-screen w-screen`}>
+          dsfdsf
+        </div>
         {/* {isOpen ? <ModalTest /> : ""} */}
 
         <div
