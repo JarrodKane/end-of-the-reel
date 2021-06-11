@@ -14,8 +14,8 @@ const Modal = () => {
   console.log(isOpen);
   return (
     <div
-      className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  transition duration-500  ${
-        isOpen ? "" : "hidden"
+      className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen   ${
+        isOpen ? "bg-red-500" : "hidden opacity-0"
       } `}
     >
       {/* <ModalLink url="/episodes" text="Episodes" />
