@@ -5,7 +5,7 @@ import { ModalContext } from "../../context/ModalProvider";
 interface Props {}
 
 const divStyle = {
-  backgroundColor: "red",
+  backgroundColor: "#ef4444",
   zindex: 50,
 };
 
@@ -14,9 +14,9 @@ const ModalNav = () => {
 
   return (
     <div
-      className={`fixed top-14 z-30  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  `}
+      className={`fixed top-14 z-30  flex flex-col  justify-center text-5xl  w-screen h-screen  `}
+      style={divStyle}
     >
-      <div className={`w-screen h-screen bg-gray-900`}>asdasdTEST</div>
       <ModalLink url="/episodes" text="Episodes" />
       <ModalLink url="/about" text="About" />
       <ModalLink url="/contact" text="Contact" />
