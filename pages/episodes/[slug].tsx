@@ -3,6 +3,8 @@ import React, { useContext, useEffect } from "react";
 import { PlayerContext } from "../../context/PlayerProvider";
 import { getEpisodes } from "../api/podcast";
 
+import ContentWrap from "../../components/templates/ContentWrap";
+
 import CardEpisode from "../../components/organisims/Cards/CardEpisode";
 
 interface Props {
@@ -74,18 +76,20 @@ const Episode = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col w-full">
-      <CardEpisode
-        handleChangeEpisode={handleChangeEpisode}
-        key={id}
-        postNumber={1}
-        title={title}
-        description={content_html}
-        src={url}
-        date={date_published}
-        image={image}
-      />
-    </div>
+    <ContentWrap>
+      <div className="flex flex-col w-full">
+        <CardEpisode
+          handleChangeEpisode={handleChangeEpisode}
+          key={id}
+          postNumber={1}
+          title={title}
+          description={content_html}
+          src={url}
+          date={date_published}
+          image={image}
+        />
+      </div>
+    </ContentWrap>
   );
 };
 

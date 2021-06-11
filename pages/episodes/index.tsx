@@ -4,6 +4,8 @@ import Image from "next/image";
 import CardDetails from "../../components/organisims/Cards/CardDetail";
 import EpisodeGrid from "../../components/organisims/EpisodeGrid";
 
+import ContentWrap from "../../components/templates/ContentWrap";
+
 import { PlayerContext } from "../../context/PlayerProvider";
 
 import { getEpisodes } from "../api/podcast";
@@ -98,9 +100,11 @@ const Episodes = (props: Props) => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full">
-      <EpisodeGrid episodes={episodeList} image={image} />
-    </div>
+    <ContentWrap>
+      <div className="flex flex-col w-full">
+        <EpisodeGrid episodes={episodeList} image={image} />
+      </div>
+    </ContentWrap>
   );
 };
 
