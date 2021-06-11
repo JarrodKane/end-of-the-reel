@@ -36,7 +36,7 @@ const Nav = (props: Props) => {
     return (
       <>
         {/* <ModalTest /> */}
-        <div className={`fixed top-14 z-30 bg-red-500 h-screen w-screen`}>
+        <div className={`fixed top-14 z-30 bg-blue-600 h-screen w-screen`}>
           dsfdsf
         </div>
         {/* {isOpen ? <ModalTest /> : ""} */}
