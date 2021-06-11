@@ -5,7 +5,7 @@ interface Props {}
 
 const Modal = () => {
   return (
-    <div className={`fixed top-14 z-50  h-screen  w-screen bg-blue-200 `}>
+    <div className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}>
       <div className={`flex flex-col  justify-center text-5xl w-full h-full`}>
         <ModalLink url="/episodes" text="Episodes" />
 
