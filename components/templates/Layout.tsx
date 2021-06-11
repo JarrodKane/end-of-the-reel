@@ -7,7 +7,7 @@ interface Props {}
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div
-      className={`min-h-screen bg-eotr-pattern flex  justify-center pb-20  bg-repeat `}
+      className={`min-h-screen bg-eotr-pattern flex  justify-center pb-20  bg-repeat  `}
     >
       <div
         className={`z-10 mt-0 lg:mt-14 shadow-lg h-full  lg:w-7/12 w-full flex justify-center  `}

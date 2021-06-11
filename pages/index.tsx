@@ -71,7 +71,7 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full ">
       {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
       {newList.map((episode, i) => {
         if (episode.image !== undefined) {
