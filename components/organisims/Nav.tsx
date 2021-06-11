@@ -27,12 +27,10 @@ const Nav = (props: Props) => {
 
   const Modal = () => {
     return (
-      // <div
-      //   className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}
-      //   // style={divStyle}
-      // >
       <div
-        className={`fixed top-14 z-50 flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen `}
+        className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  transition duration-500  ${
+          isOpen ? "" : "hidden  "
+        } `}
       >
         <ModalLink url="/episodes" text="Episodes" />
 
@@ -40,14 +38,14 @@ const Nav = (props: Props) => {
 
         <ModalLink url="/contact" text="Contact" />
       </div>
-      // </div>
     );
   };
 
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        {isOpen ? <Modal /> : null}
+        <Modal />
+
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
         >
