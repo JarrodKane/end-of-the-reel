@@ -27,14 +27,14 @@ import SocialIcons from "../molecules/SocialIcons";
 interface Props {}
 
 const Nav = (props: Props) => {
-  const { handleModal } = useContext(ModalContext);
+  const { isOpen, handleModal } = useContext(ModalContext);
 
   const window = useWindowSize();
 
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        <Modal />
+        {isOpen ? <Modal /> : null}
 
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}

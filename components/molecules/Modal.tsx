@@ -18,11 +18,11 @@ const Modal = () => {
         isOpen ? "bg-red-500" : "hidden "
       } `}
     >
-      {/* <ModalLink url="/episodes" text="Episodes" />
+      <ModalLink url="/episodes" text="Episodes" />
 
       <ModalLink url="/about" text="About" />
 
-      <ModalLink url="/contact" text="Contact" /> */}
+      <ModalLink url="/contact" text="Contact" />
     </div>
   );
 };
