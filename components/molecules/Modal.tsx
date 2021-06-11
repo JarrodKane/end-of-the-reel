@@ -10,6 +10,8 @@ interface Props {}
 
 const Modal = () => {
   const { isOpen } = useContext(ModalContext);
+
+  console.log(isOpen);
   return (
     <div
       className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  transition duration-500  ${
