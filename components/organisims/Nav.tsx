@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+// Context
+import { ModalContext } from "../../context/ModalProvider";
 
 // HOOKS
 import useWindowSize from "../../hooks/useWindowSize";
@@ -14,34 +17,28 @@ import SocialIcons from "../molecules/SocialIcons";
 
 // TODO: Store the state of isOpen in context, so that you can turn off the overflow when it's open, but it's not really an issue since you'll only really see this in mobile view
 
-const Nav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface Props {}
 
-  const handleOpenModal = () => {
-    const curModal = isOpen;
-    setIsOpen(!curModal);
-  };
+const Nav = (props: Props) => {
+  const { isOpen, handleModal } = useContext(ModalContext);
 
   const window = useWindowSize();
 
   if (window.width !== undefined && window.width < 1024) {
     return (
-      <>
-        {isOpen ? <Modal /> : null}
+      <div
+        className={`flex justify-center text-align bg-white py-1 px-5 md:px-2`}
+      >
         <div
-          className={`flex justify-center text-align bg-white py-1 px-5 md:px-2`}
+          className={`flex h-12 w-12 cursor-pointer`}
+          onClick={() => handleModal()}
         >
-          <div
-            className={`flex h-12 w-12 cursor-pointer`}
-            onClick={handleOpenModal}
-          >
-            <Hamburger />
-          </div>
-          <div className={`flex w-full justify-center `}>
-            <NavTitle title="End of the Reel" url="/" />
-          </div>
+          <Hamburger />
         </div>
-      </>
+        <div className={`flex w-full justify-center `}>
+          <NavTitle title="End of the Reel" url="/" />
+        </div>
+      </div>
     );
   } else {
     return (
