@@ -8,14 +8,14 @@ const ModalNav = () => {
   const { isOpen } = useContext(ModalContext);
 
   return (
-    <div
-      className={`fixed top-14 z-30  flex flex-col bg-red-500  justify-center text-5xl  w-screen h-screen ${
-        isOpen ? "" : "hidden"
-      } `}
-    >
-      <ModalLink url="/episodes" text="Episodes" />
-      <ModalLink url="/about" text="About" />
-      <ModalLink url="/contact" text="Contact" />
+    <div className={`relative `}>
+      <div
+        className={`fixed top-14 z-30 bg-red-500 h-screen w-screen text-3xl flex flex-col justify-center`}
+      >
+        <ModalLink url="/episodes" text="Episodes" />
+        <ModalLink url="/about" text="About" />
+        <ModalLink url="/contact" text="Contact" />
+      </div>
     </div>
   );
 };
