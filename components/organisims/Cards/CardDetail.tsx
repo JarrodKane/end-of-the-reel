@@ -67,7 +67,7 @@ const CardEDetail: React.FC<Props> = ({
               alt={`Picture of End Of The Reel podcast`}
               // height={400}
               // width={400}
-              className={` filter saturate-150 rounded-r-md `}
+              className={`rounded-r-md `}
             />
           </div>
         </div>

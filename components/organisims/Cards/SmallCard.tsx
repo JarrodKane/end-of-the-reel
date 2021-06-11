@@ -62,7 +62,7 @@ const SmallCard = (props: Props) => {
           alt={`Picture of End Of The Reel podcast`}
           // height={400}
           // width={400}
-          className={` filter saturate-150 `}
+          className={` `}
         />
       </div>
       <div className={`flex flex-col items-center p-3`}>
