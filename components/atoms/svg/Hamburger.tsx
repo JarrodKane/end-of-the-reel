@@ -1,9 +1,6 @@
 import React from "react";
 
-// interface Props {
-//   width: number;
-//   height: number;
-// }
+interface Props {}
 
 const Hamburger = (props: Props) => {
   //   const { width, height } = props;
