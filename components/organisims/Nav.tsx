@@ -22,8 +22,6 @@ import StyledLink from "../atoms/StyledLink";
 
 import SocialIcons from "../molecules/SocialIcons";
 
-import ModalLink from "../atoms/ModalLink";
-
 // TODO: Store the state of isOpen in context, so that you can turn off the overflow when it's open, but it's not really an issue since you'll only really see this in mobile view
 
 interface Props {}
@@ -36,23 +34,7 @@ const Nav = (props: Props) => {
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        {/* {isOpen ? <Modal /> : null} */}
-        {isOpen ? (
-          <div
-            className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen   ${
-              isOpen ? "bg-red-500" : "hidden "
-            } `}
-          >
-            <div
-              className={`fixed top-14 z-50  flex flex-col  justify-center  bg-red-500 w-full h-full
-       `}
-            >
-              <ModalLink url="/episodes" text="Episodes" />
-              <ModalLink url="/about" text="About" />
-              <ModalLink url="/contact" text="Contact" />
-            </div>
-          </div>
-        ) : null}
+        {isOpen ? <Modal /> : null}
 
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}

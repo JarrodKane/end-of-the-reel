@@ -4,9 +4,10 @@ import { ModalContext } from "../../context/ModalProvider";
 
 interface Props {}
 
-// const divStyle = {
-//   backgroundColor: "blue",
-// };
+const divStyle = {
+  backgroundColor: "red",
+  zindex: 50,
+};
 
 const Modal = () => {
   const { isOpen } = useContext(ModalContext);
@@ -14,9 +15,11 @@ const Modal = () => {
   console.log(isOpen);
   return (
     <div
-      className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen   ${
-        isOpen ? "bg-red-500" : "hidden "
-      } `}
+      // className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen   ${
+      //   isOpen ? "bg-red-500" : "hidden "
+      // } `}
+      className={`fixed top-14 z-50  flex flex-col justify-center text-5xl  w-screen h-screen `}
+      style={divStyle}
     >
       <div
         className={`fixed top-14 z-50  flex flex-col  justify-center  bg-red-500 w-full h-full
