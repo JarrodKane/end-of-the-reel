@@ -9,13 +9,14 @@ const divStyle = {
   zindex: 50,
 };
 
-const Modal = () => {
+const ModalNav = () => {
   const { isOpen } = useContext(ModalContext);
 
   return (
     <div
       className={`fixed top-14 z-30  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  `}
     >
+      <div className={`w-screen h-screen bg-gray-900`}>asdasdTEST</div>
       <ModalLink url="/episodes" text="Episodes" />
       <ModalLink url="/about" text="About" />
       <ModalLink url="/contact" text="Contact" />
@@ -23,4 +24,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default ModalNav;

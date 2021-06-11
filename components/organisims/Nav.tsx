@@ -14,7 +14,7 @@ import { ModalContext } from "../../context/ModalProvider";
 import useWindowSize from "../../hooks/useWindowSize";
 
 // COMPONENTS
-import Modal from "../molecules/Modal";
+import ModalNav from "../molecules/ModalNav";
 import Hamburger from "../atoms/svg/Hamburger";
 import NavTitle from "../atoms/NavTitle";
 import LinkSlash from "../atoms/LinkSlash";
@@ -34,7 +34,7 @@ const Nav = (props: Props) => {
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        {isOpen ? <Modal /> : null}
+        {isOpen ? <ModalNav /> : null}
 
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
