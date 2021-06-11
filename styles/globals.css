@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans&family=Roboto&display=swap");
 
 @tailwind base;
+/* purgecss start ignore */
 @tailwind components;
 @tailwind utilities;
+/* purgecss end ignore */
 
 @layer base {
   h1 {

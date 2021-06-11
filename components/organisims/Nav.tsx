@@ -31,11 +31,6 @@ const Nav = (props: Props) => {
 
   const window = useWindowSize();
 
-  const divNav = {
-    position: "sticky",
-    top: 0,
-  };
-
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
@@ -43,7 +38,6 @@ const Nav = (props: Props) => {
 
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
-          style={divNav}
         >
           <div
             className={`flex h-12 w-12 cursor-pointer`}
