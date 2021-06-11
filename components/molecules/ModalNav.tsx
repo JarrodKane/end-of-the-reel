@@ -12,9 +12,11 @@ const ModalNav = () => {
       <div
         className={`fixed top-14 z-30 bg-red-500 h-screen w-screen text-3xl `}
       >
-        <ModalLink url="/episodes" text="Episodes" />
-        <ModalLink url="/about" text="About" />
-        <ModalLink url="/contact" text="Contact" />
+        <div className={`w-full h-full flex flex-col justify-center`}>
+          <ModalLink url="/episodes" text="Episodes" />
+          <ModalLink url="/about" text="About" />
+          <ModalLink url="/contact" text="Contact" />
+        </div>
       </div>
     </div>
   );

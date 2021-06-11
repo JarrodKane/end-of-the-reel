@@ -6,10 +6,9 @@ interface Props {}
 
 const About = (props: Props) => {
   return (
-    <ContentWrap>
-      <div className="p-3 flex flex-col w-full items-center">
-        <div className={`max-w-prose whitespace-pre-line`}>
-          {`Light banter and discussion about the world of bad movies.
+    <div className="p-3 flex flex-col w-full items-center">
+      <div className={`max-w-prose whitespace-pre-line`}>
+        {`Light banter and discussion about the world of bad movies.
       
       If you're down for some 80's, 90's, horror, sci-fi, schlock then this is the right podcast for you. Discussing all the great classics from The Room, to Bee Movie.
       
@@ -19,9 +18,8 @@ const About = (props: Props) => {
       https://www.facebook.com/EndOfTheReel
       https://twitter.com/reel_end
 `}
-        </div>
       </div>
-    </ContentWrap>
+    </div>
   );
 };
 

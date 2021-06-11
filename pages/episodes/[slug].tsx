@@ -76,20 +76,18 @@ const Episode = (props: Props) => {
   };
 
   return (
-    <ContentWrap>
-      <div className="flex flex-col w-full">
-        <CardEpisode
-          handleChangeEpisode={handleChangeEpisode}
-          key={id}
-          postNumber={1}
-          title={title}
-          description={content_html}
-          src={url}
-          date={date_published}
-          image={image}
-        />
-      </div>
-    </ContentWrap>
+    <div className="flex flex-col w-full">
+      <CardEpisode
+        handleChangeEpisode={handleChangeEpisode}
+        key={id}
+        postNumber={1}
+        title={title}
+        description={content_html}
+        src={url}
+        date={date_published}
+        image={image}
+      />
+    </div>
   );
 };
 
