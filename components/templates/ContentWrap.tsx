@@ -20,7 +20,7 @@ const ContentWrap: React.FC<Props> = ({ children }) => {
     <div className={`w-full bg-gray-100 `}>
       <Nav />
       <Hero path={router.pathname} />
-      <div className={`z-50`}>{isOpen ? <Modal /> : null}</div>
+      {isOpen ? <Modal /> : null}
 
       {children}
 

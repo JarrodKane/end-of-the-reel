@@ -3,19 +3,26 @@ import ModalLink from "../atoms/ModalLink";
 
 interface Props {}
 
+// const divStyle = {
+//   backgroundColor: "blue",
+// };
+
 const Modal = () => {
   return (
-    <div className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}>
-      <div
-        className={`flex flex-col z-50 justify-center text-5xl w-full h-full`}
-      >
-        <ModalLink url="/episodes" text="Episodes" />
+    // <div
+    //   className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}
+    //   // style={divStyle}
+    // >
+    <div
+      className={`fixed top-14 z-50 flex flex-col  justify-center text-5xl bg-red-500 w-full h-full `}
+    >
+      <ModalLink url="/episodes" text="Episodes" />
 
-        <ModalLink url="/about" text="About" />
+      <ModalLink url="/about" text="About" />
 
-        <ModalLink url="/contact" text="Contact" />
-      </div>
+      <ModalLink url="/contact" text="Contact" />
     </div>
+    // </div>
   );
 };
 
