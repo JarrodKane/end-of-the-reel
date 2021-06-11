@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import ModalLink from "../atoms/ModalLink";
+import { ModalContext } from "../../context/ModalProvider";
 
 interface Props {}
 
@@ -8,13 +9,12 @@ interface Props {}
 // };
 
 const Modal = () => {
+  const { isOpen } = useContext(ModalContext);
   return (
-    // <div
-    //   className={`fixed top-14 z-50  h-screen  w-screen bg-red-500 `}
-    //   // style={divStyle}
-    // >
     <div
-      className={`fixed top-14 z-50 flex flex-col justify-center text-5xl bg-red-500 w-screen h-screen `}
+      className={`fixed top-14 z-50  flex flex-col  justify-center text-5xl bg-red-500 w-screen h-screen  transition duration-500  ${
+        isOpen ? "" : "hidden"
+      } `}
     >
       <ModalLink url="/episodes" text="Episodes" />
 
@@ -22,7 +22,6 @@ const Modal = () => {
 
       <ModalLink url="/contact" text="Contact" />
     </div>
-    // </div>
   );
 };
 
