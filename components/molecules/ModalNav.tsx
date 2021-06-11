@@ -9,7 +9,9 @@ const ModalNav = () => {
 
   return (
     <div
-      className={`fixed top-14 z-30  flex flex-col bg-red-500  justify-center text-5xl  w-screen h-screen  `}
+      className={`fixed top-14 z-30  flex flex-col bg-red-500  justify-center text-5xl  w-screen h-screen ${
+        isOpen ? "" : "hidden"
+      } `}
     >
       <ModalLink url="/episodes" text="Episodes" />
       <ModalLink url="/about" text="About" />
