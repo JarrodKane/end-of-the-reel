@@ -10,7 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       className={`min-h-screen bg-eotr-pattern flex  justify-center pb-20  bg-repeat  `}
     >
       <div
-        className={`z-10 mt-0 lg:mt-14 shadow-lg h-full  lg:w-7/12 w-full flex justify-center  `}
+        className={`z-10 mt-0 lg:mt-14 shadow-lg h-full  lg:w-7/12 w-full flex justify-center `}
       >
         <Content>{children}</Content>
         <div
