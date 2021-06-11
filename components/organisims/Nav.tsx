@@ -34,27 +34,22 @@ const Nav = (props: Props) => {
 
   if (window.width !== undefined && window.width < 1024) {
     return (
-      <>
-        {/* <ModalTest /> */}
+      <div
+        className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
+      >
         <div className={`fixed top-14 z-30 bg-blue-600 h-screen w-screen`}>
           dsfdsf
         </div>
-        {/* {isOpen ? <ModalTest /> : ""} */}
-
         <div
-          className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
+          className={`flex h-12 w-12 cursor-pointer`}
+          onClick={() => handleModal()}
         >
-          <div
-            className={`flex h-12 w-12 cursor-pointer`}
-            onClick={() => handleModal()}
-          >
-            <Hamburger />
-          </div>
-          <div className={`flex w-full justify-center `}>
-            <NavTitle title="End of the Reel" url="/" />
-          </div>
+          <Hamburger />
         </div>
-      </>
+        <div className={`flex w-full justify-center `}>
+          <NavTitle title="End of the Reel" url="/" />
+        </div>
+      </div>
     );
   } else {
     return (
