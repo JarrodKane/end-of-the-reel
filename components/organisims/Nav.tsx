@@ -34,11 +34,8 @@ const Nav = (props: Props) => {
 
   return (
     <div
-      className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
+      className={`sticky top-0 z-20 flex justify-center text-align bg-red-500 py-1 px-5 md:px-2 shadow-md opacity-90`}
     >
-      <div className={`fixed top-14 z-30 bg-blue-600 h-screen w-screen`}>
-        dsfdsf
-      </div>
       <div
         className={`flex h-12 w-12 cursor-pointer`}
         onClick={() => handleModal()}
