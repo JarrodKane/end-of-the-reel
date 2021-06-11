@@ -12,7 +12,8 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div
         className={`z-10 mt-0 lg:mt-14 shadow-lg h-full  lg:w-7/12 w-full flex justify-center `}
       >
-        <Content>{children}</Content>
+        {children}
+        {/* <Content>{children}</Content> */}
         <div
           className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600`}
         >
