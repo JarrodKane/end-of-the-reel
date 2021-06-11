@@ -19,6 +19,7 @@ import Hamburger from "../atoms/svg/Hamburger";
 import NavTitle from "../atoms/NavTitle";
 import LinkSlash from "../atoms/LinkSlash";
 import StyledLink from "../atoms/StyledLink";
+import ModalTest from "../organisims/ModalTest";
 
 import SocialIcons from "../molecules/SocialIcons";
 
@@ -34,7 +35,8 @@ const Nav = (props: Props) => {
   if (window.width !== undefined && window.width < 1024) {
     return (
       <>
-        <ModalNav />
+        {/* <ModalNav /> */}
+        {isOpen ? <ModalTest /> : ""}
 
         <div
           className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
