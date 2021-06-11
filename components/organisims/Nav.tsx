@@ -27,7 +27,7 @@ const Nav = (props: Props) => {
   if (window.width !== undefined && window.width < 1024) {
     return (
       <div
-        className={`flex justify-center text-align bg-white py-1 px-5 md:px-2`}
+        className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
       >
         <div
           className={`flex h-12 w-12 cursor-pointer`}
