@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Content from "./ContentWrap";
 import Player from "../organisims/Player";
+import ContentWrap from "../templates/ContentWrap";
 
 interface Props {}
 
@@ -12,7 +13,8 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div
         className={`z-10 mt-0 lg:mt-14 shadow-lg h-full  lg:w-7/12 w-full flex justify-center  `}
       >
-        {children}
+        <ContentWrap>{children}</ContentWrap>
+
         <div
           className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600 `}
         >

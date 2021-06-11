@@ -72,26 +72,11 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
   }, []);
 
   return (
-    <ContentWrap>
-      <div className="flex flex-col w-full  ">
-        {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
-        {newList.map((episode, i) => {
-          if (episode.image !== undefined) {
-            image = episode.image;
-            return (
-              <CardDetails
-                handleChangeEpisode={handleChangeEpisode}
-                key={episode.id}
-                postNumber={i}
-                title={episode.title}
-                description={episode.content_html}
-                src={episode.attachments[0].url}
-                date={episode.date_published}
-                image={image}
-              />
-            );
-          }
-
+    <div className="flex flex-col w-full  ">
+      {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
+      {newList.map((episode, i) => {
+        if (episode.image !== undefined) {
+          image = episode.image;
           return (
             <CardDetails
               handleChangeEpisode={handleChangeEpisode}
@@ -104,9 +89,22 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
               image={image}
             />
           );
-        })}
-      </div>
-    </ContentWrap>
+        }
+
+        return (
+          <CardDetails
+            handleChangeEpisode={handleChangeEpisode}
+            key={episode.id}
+            postNumber={i}
+            title={episode.title}
+            description={episode.content_html}
+            src={episode.attachments[0].url}
+            date={episode.date_published}
+            image={image}
+          />
+        );
+      })}
+    </div>
   );
 };
 
