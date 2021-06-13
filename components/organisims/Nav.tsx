@@ -38,7 +38,7 @@ const Nav = (props: Props) => {
         {isOpen ? <ModalNav /> : ""}
 
         <div
-          className={`sticky top-0 z-20 flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90`}
+          className={`sticky top-0  flex justify-center text-align bg-white py-1 px-5 md:px-2 shadow-md opacity-90 z-30`}
         >
           <div
             className={`flex h-12 w-12 cursor-pointer`}
@@ -55,7 +55,7 @@ const Nav = (props: Props) => {
   } else {
     return (
       <div
-        className={`grid grid-flow-col grid-cols-4 text-align bg-white py-1 px-5`}
+        className={`sticky top-0 opacity-90 z-30 grid grid-flow-col grid-cols-4 text-align bg-white py-1 px-5`}
       >
         <div className={`flex`}>
           <NavTitle title="End of the Reel" url="/" />

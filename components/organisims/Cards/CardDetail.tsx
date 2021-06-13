@@ -49,8 +49,13 @@ const CardEDetail: React.FC<Props> = ({
   return (
     <div className={`bg-gray-200 shadow-sm `}>
       <div className={`bg-white shadow-sm p-10`}>
-        <div className={`text-4xl  text-indigo-700 font-bold`}>
-          <button onClick={handleEpisode}>{title}</button>
+        <div className={`  `}>
+          <button
+            className={`text-3xl  text-indigo-800 hover:text-indigo-500 font-bold  `}
+            onClick={handleEpisode}
+          >
+            {title}
+          </button>
         </div>
 
         <div>{date}</div>
