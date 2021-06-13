@@ -29,6 +29,8 @@ I'll need to build a basic backend for them to sign into and do that work, that'
 
 **Client:** [Next.js](https://nextjs.org/), [react](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Tailwindscss](https://tailwindcss.com/)
 
+**Testing** [Cypress](https://www.cypress.io/)
+
 ## Features
 
 - Static site generation
@@ -45,8 +47,8 @@ I'll need to build a basic backend for them to sign into and do that work, that'
   - [ ] Polls
   - [ ] Contact form
 
-- [ ] Responsive
-- [ ] Testing
+- [x] Responsive
+- [x] Testing
 
 ### testing
 

@@ -9,11 +9,11 @@ interface Props {
 const NavTitle: React.FC<Props> = ({ title, url }) => {
   return (
     <Link href={url}>
-      <h3
+      <h2
         className={`inline-flex  items-center font-Nav text-3xl font-bold tracking-tight text-gray-800 cursor-pointer`}
       >
         {title}
-      </h3>
+      </h2>
     </Link>
   );
 };

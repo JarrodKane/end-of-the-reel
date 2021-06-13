@@ -47,7 +47,7 @@ const Nav = (props: Props) => {
             <Hamburger />
           </div>
           <div className={`flex w-full justify-center `}>
-            <NavTitle title="End of the Reel" url="/" />
+            <NavTitle title="End Of The Reel" url="/" />
           </div>
         </div>
       </>
