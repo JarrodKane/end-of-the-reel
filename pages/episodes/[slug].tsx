@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
+import Head from "next/head";
+import { v4 as uuidv4 } from "uuid";
 
 import { PlayerContext } from "../../context/PlayerProvider";
 import { getEpisodes } from "../api/podcast";
-
-import ContentWrap from "../../components/templates/ContentWrap";
 
 import CardEpisode from "../../components/organisims/Cards/CardEpisode";
 
@@ -56,6 +56,8 @@ const Episode = (props: Props) => {
   let { id, title, content_html, date_published } = props.episode[0];
   const { url } = props.episode[0].attachments[0];
 
+  const metaTitle = title.splice(0, 3);
+
   const { episode, changeEpisode, changeEpisodeNew } =
     useContext(PlayerContext);
 
@@ -77,6 +79,10 @@ const Episode = (props: Props) => {
 
   return (
     <div className="flex flex-col w-full">
+      <Head>
+        <title>{metaTitle}</title>
+        <meta property="og:title" content={metaTitle} key={uuidv4()} />
+      </Head>
       <CardEpisode
         handleChangeEpisode={handleChangeEpisode}
         key={id}

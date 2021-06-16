@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import Head from "next/head";
+import { v4 as uuidv4 } from "uuid";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -73,6 +75,10 @@ const Home: React.FC<Props> = ({ episodes, id }) => {
 
   return (
     <div className="flex flex-col w-full  ">
+      <Head>
+        <title>{`End Of The Reel`}</title>
+        <meta property="og:title" content={`End Of The Reel`} key={uuidv4()} />
+      </Head>
       {/* IF there is an image for that episode it'll grab it, if there is not it'll grab the default icon for your podcast */}
       {newList.map((episode, i) => {
         if (episode.image !== undefined) {

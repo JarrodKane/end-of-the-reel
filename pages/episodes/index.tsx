@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
+
 import CardDetails from "../../components/organisims/Cards/CardDetail";
 import EpisodeGrid from "../../components/organisims/EpisodeGrid";
 
@@ -101,6 +103,10 @@ const Episodes = (props: Props) => {
 
   return (
     <div className="flex flex-col w-full">
+      <Head>
+        <title>Episodes</title>
+        <meta property="og:title" content={`Episodes`} key={uuidv4()} />
+      </Head>
       <EpisodeGrid episodes={episodeList} image={image} />
     </div>
   );
