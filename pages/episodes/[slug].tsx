@@ -56,8 +56,7 @@ const Episode = (props: Props) => {
   let { id, title, content_html, date_published } = props.episode[0];
   const { url } = props.episode[0].attachments[0];
 
-  let metaTitle: string | RegExpMatchArray | null =
-    props.episode[0].title.substring(6);
+  let metaTitle: string = props.episode[0].title.substring(6);
 
   const { episode, changeEpisode, changeEpisodeNew } =
     useContext(PlayerContext);
@@ -72,7 +71,6 @@ const Episode = (props: Props) => {
 
   let image =
     "https://storage.pinecast.net/podcasts/covers/2c8fe705-d033-4427-9211-f60aba41ff65/EndOfTheReelLogo.jpg";
-  // const image = "daf";
 
   const handleChangeEpisode = (src: string) => {
     changeEpisodeNew(src);
