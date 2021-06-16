@@ -56,7 +56,10 @@ const Episode = (props: Props) => {
   let { id, title, content_html, date_published } = props.episode[0];
   const { url } = props.episode[0].attachments[0];
 
-  const metaTitle = title.splice(0, 3);
+  let metaTitle: string | RegExpMatchArray | null =
+    props.episode[0].title.substring(6);
+
+  console.log(metaTitle);
 
   const { episode, changeEpisode, changeEpisodeNew } =
     useContext(PlayerContext);
