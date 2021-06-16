@@ -17,11 +17,14 @@ const Callout1 = (props: Props) => {
         
         Now you don't just have to hear us, but you can see us too!`}
         {/* TODO: Make the button link to the youtube page */}
-        <button
+        <a
+          href="https://www.youtube.com/channel/UCgafXzudOuMF1I_iuearE1w"
+          target="_blank"
+          rel="noopener noreferrer"
           className={` border border-white 4/5  md:w-3/5  p-2 m-2 mb-0 hover:bg-red-700  transform duration-150 uppercase`}
         >
           Youtube
-        </button>
+        </a>
       </div>
     </div>
   );
