@@ -59,8 +59,6 @@ const Episode = (props: Props) => {
   let metaTitle: string | RegExpMatchArray | null =
     props.episode[0].title.substring(6);
 
-  console.log(metaTitle);
-
   const { episode, changeEpisode, changeEpisodeNew } =
     useContext(PlayerContext);
 
