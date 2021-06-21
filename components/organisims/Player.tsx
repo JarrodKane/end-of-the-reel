@@ -1,6 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { FaPlay, FaPause } from "react-icons/fa";
+
 import { PlayerContext } from "../../context/PlayerProvider";
 
 interface Props {}
@@ -12,9 +15,15 @@ interface Props {}
 const Player: React.FC<Props> = ({}) => {
   const { episode, episodeCur, changeEpisodeNew } = useContext(PlayerContext);
   const [epSrc, setEpSrc] = useState(episode);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Needed an audio ref because changing the src of the component does not actually update it
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlayPause = () => {
+    const currentState = isPlaying;
+    setIsPlaying(!currentState);
+  };
 
   const updateSong = (src: string) => {
     changeEpisodeNew(src);
@@ -22,7 +31,6 @@ const Player: React.FC<Props> = ({}) => {
     setEpSrc(src);
 
     if (audioRef.current !== null) {
-      console.log("RAN UPDAE");
       audioRef.current.pause();
       audioRef.current.load();
       audioRef.current.play();
@@ -41,11 +49,25 @@ const Player: React.FC<Props> = ({}) => {
 
   return (
     <div className={`w-full  flex justify-center `}>
-      <audio ref={audioRef} controls className={`w-3/4 rounded-lg`}>
+      <button>
+        <BsArrowLeftShort />
+      </button>
+      <button onClick={togglePlayPause}>
+        {isPlaying ? <FaPause /> : <FaPlay />}
+      </button>
+      <button>
+        <BsArrowRightShort />
+      </button>
+      <div>0:00</div>
+      <div>
+        <input type="range" />
+        <div>2:49</div>
+      </div>
+      <audio ref={audioRef} className={`w-3/4 rounded-lg`}>
         <source key={uuidv4()} src={epSrc} type="audio/mpeg" />
       </audio>
     </div>
   );
 };
 
-export default Player;
+export { Player };

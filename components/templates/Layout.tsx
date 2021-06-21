@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Content from "./ContentWrap";
-import Player from "../organisims/Player";
+import { Player } from "../organisims/Player";
 import ContentWrap from "../templates/ContentWrap";
 
 interface Props {}
