@@ -6,6 +6,10 @@ import { FaPlay, FaPause } from "react-icons/fa";
 
 import { PlayerContext } from "../../context/PlayerProvider";
 
+import { CtrlBtn } from "../atoms/player/CtrlBtn";
+import { PlayBtn } from "../atoms/player/PlayBtn";
+import { TimeDisp } from "../atoms/player/TimeDisp";
+
 interface Props {}
 
 // TODO: You want the default most recent episode loaded in when someone first navigates to the site no matter whicih page they go to first. There might need to be a call to the API and then storing of the response in Context from the start?
@@ -48,23 +52,28 @@ const Player: React.FC<Props> = ({}) => {
   }, [episode]);
 
   return (
-    <div className={`w-full  flex justify-center `}>
-      <button>
+    <div
+      className={` h-12  flex w-2/3 justify-items-center bg-gray-200 border border-indigo-600 border-double rounded-full items-center`}
+    >
+      <CtrlBtn>
         <BsArrowLeftShort />
-      </button>
-      <button onClick={togglePlayPause}>
-        {isPlaying ? <FaPause /> : <FaPlay />}
-      </button>
-      <button>
+      </CtrlBtn>
+      <PlayBtn togglePlayPause={togglePlayPause}>
+        {isPlaying ? <FaPause /> : <FaPlay className={`relative left-0.5`} />}
+      </PlayBtn>
+      <CtrlBtn>
         <BsArrowRightShort />
-      </button>
-      <div>0:00</div>
-      <div>
-        <input type="range" />
-        <div>2:49</div>
+      </CtrlBtn>
+      <TimeDisp>0:00</TimeDisp>
+      <div className={"flex mx-2 w-full flex-grow"}>
+        <input
+          type="range"
+          className={`rounded-lg w-full flex-grow appearance-none text-purple-900 bg-green-500 h-3 cursor-pointer progressBar`}
+        />
       </div>
-      <audio ref={audioRef} className={`w-3/4 rounded-lg`}>
-        <source key={uuidv4()} src={epSrc} type="audio/mpeg" />
+      <TimeDisp>2:49</TimeDisp>
+      <audio ref={audioRef} className={`w-0`} src={epSrc}>
+        {/* <source key={uuidv4()} src={epSrc} type="audio/mpeg" /> */}
       </audio>
     </div>
   );
