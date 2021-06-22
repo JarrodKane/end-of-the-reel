@@ -6,7 +6,7 @@ interface Props {
 
 export const TimeDisp = (props: Props) => {
   return (
-    <button className={`relative left-0.5 flex h-full items-center`}>
+    <button className={`relative left-0.5 flex h-full items-center px-3`}>
       {props.children}
     </button>
   );

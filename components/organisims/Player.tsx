@@ -20,40 +20,58 @@ const Player: React.FC<Props> = ({}) => {
   const { episode, episodeCur, changeEpisodeNew } = useContext(PlayerContext);
   const [epSrc, setEpSrc] = useState(episode);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
 
   // Needed an audio ref because changing the src of the component does not actually update it
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlayPause = () => {
-    const currentState = isPlaying;
-    setIsPlaying(!currentState);
+    const prevValue = isPlaying;
+    setIsPlaying(!prevValue);
+    if (audioRef.current !== null) {
+      if (!prevValue) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
   };
 
-  const updateSong = (src: string) => {
-    changeEpisodeNew(src);
-    console.log(src);
-    setEpSrc(src);
+  const updateSong = () => {
+    changeEpisodeNew(episodeCur);
+    setEpSrc(episodeCur);
 
     if (audioRef.current !== null) {
+      setIsPlaying(true);
       audioRef.current.pause();
       audioRef.current.load();
       audioRef.current.play();
     }
   };
 
+  // Updates the player when ever a new song is clicked and an episode is running
   useEffect(() => {
     if (episodeCur.length !== 0) {
-      updateSong(episodeCur);
+      updateSong();
     }
   }, [episodeCur]);
 
+  // useEffect(() => {
+  //   if (Number.isNaN(audioRef?.current?.duration) === false) {
+  //     console.log(audioRef?.current?.duration);
+  //   }
+  // }, [audioRef?.current?.duration]);
+
+  // Only ran when the page loads or the episode changes
   useEffect(() => {
-    setEpSrc(episode);
-  }, [episode]);
+    if (episode.length !== 0 && audioRef.current !== null) {
+      setEpSrc(episode);
+    }
+  }, [audioRef?.current?.onloadedmetadata, audioRef?.current?.readyState]);
 
   return (
     <div
-      className={` h-12  flex w-2/3 justify-items-center bg-gray-200 border border-indigo-600 border-double rounded-full items-center`}
+      className={` h-12   flex w-2/3 justify-items-center bg-gray-200 border border-indigo-600 border-double rounded-full items-center`}
     >
       <CtrlBtn>
         <BsArrowLeftShort />
@@ -71,9 +89,10 @@ const Player: React.FC<Props> = ({}) => {
           className={`rounded-lg w-full flex-grow appearance-none text-purple-900 bg-green-500 h-3 cursor-pointer progressBar`}
         />
       </div>
-      <TimeDisp>2:49</TimeDisp>
-      <audio ref={audioRef} className={`w-0`} src={epSrc}>
-        {/* <source key={uuidv4()} src={epSrc} type="audio/mpeg" /> */}
+      {/* Duration */}
+      <TimeDisp>{duration}</TimeDisp>
+      <audio ref={audioRef} className={`w-0`} preload="metadata">
+        <source key={uuidv4()} src={epSrc} type="audio/mpeg" />
       </audio>
     </div>
   );
