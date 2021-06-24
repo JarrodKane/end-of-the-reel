@@ -21,9 +21,12 @@ const Player: React.FC<Props> = ({}) => {
   const [epSrc, setEpSrc] = useState(episode);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
-  // Needed an audio ref because changing the src of the component does not actually update it
-  const audioRef = useRef<HTMLAudioElement>(null);
+  // Refernces
+  const progressBar = useRef<HTMLInputElement | null>(null); //This is a refernce to the progressbar
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const animationRef = useRef<HTMLAudioElement | null | Number>(); // refernce to animation
 
   const togglePlayPause = () => {
     const prevValue = isPlaying;
@@ -31,10 +34,37 @@ const Player: React.FC<Props> = ({}) => {
     if (audioRef.current !== null) {
       if (!prevValue) {
         audioRef.current.play();
+        animationRef.current = requestAnimationFrame(whilePlaying);
       } else {
         audioRef.current.pause();
+        cancelAnimationFrame(animationRef.current);
       }
     }
+  };
+
+  const whilePlaying = () => {
+    if (audioRef.current !== null && progressBar.current !== null) {
+      progressBar.current.value = audioRef.current.currentTime.toString();
+      setCurrentTime(parseInt(progressBar.current.value));
+      animationRef.current = requestAnimationFrame(whilePlaying);
+    }
+  };
+
+  const onLoadedMetadata = () => {
+    if (audioRef.current !== null) {
+      const seconds = Math.floor(audioRef.current.duration);
+      setDuration(seconds);
+      // progressBarRef.current.max = seconds;
+    }
+  };
+
+  const calculateTime = (secs: number) => {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+
+    return `${returnedMinutes}:${returnedSeconds}`;
   };
 
   const updateSong = () => {
@@ -56,18 +86,23 @@ const Player: React.FC<Props> = ({}) => {
     }
   }, [episodeCur]);
 
-  // useEffect(() => {
-  //   if (Number.isNaN(audioRef?.current?.duration) === false) {
-  //     console.log(audioRef?.current?.duration);
-  //   }
-  // }, [audioRef?.current?.duration]);
-
   // Only ran when the page loads or the episode changes
   useEffect(() => {
     if (episode.length !== 0 && audioRef.current !== null) {
       setEpSrc(episode);
+      const seconds = Math.floor(audioRef.current.duration);
+      setDuration(seconds);
+      progressBar.current.max = seconds;
     }
   }, [audioRef?.current?.onloadedmetadata, audioRef?.current?.readyState]);
+
+  const changeRange = () => {
+    if (audioRef.current !== null && progressBar.current !== null) {
+      audioRef.current.currentTime = progressBar.current.value;
+
+      setCurrentTime(progressBar.current.value);
+    }
+  };
 
   return (
     <div
@@ -82,16 +117,24 @@ const Player: React.FC<Props> = ({}) => {
       <CtrlBtn>
         <BsArrowRightShort />
       </CtrlBtn>
-      <TimeDisp>0:00</TimeDisp>
-      <div className={"flex mx-2 w-full flex-grow"}>
+      <TimeDisp>{calculateTime(currentTime)}</TimeDisp>
+      <div className={"flex mx-2  flex-grow"}>
         <input
           type="range"
+          defaultValue={0}
+          ref={progressBar}
+          onChange={changeRange}
           className={`rounded-lg w-full flex-grow appearance-none text-purple-900 bg-green-500 h-3 cursor-pointer progressBar`}
         />
       </div>
       {/* Duration */}
-      <TimeDisp>{duration}</TimeDisp>
-      <audio ref={audioRef} className={`w-0`} preload="metadata">
+      <TimeDisp>{calculateTime(duration)}</TimeDisp>
+      <audio
+        ref={audioRef}
+        className={`w-0`}
+        preload="metadata"
+        onLoadedMetadata={onLoadedMetadata}
+      >
         <source key={uuidv4()} src={epSrc} type="audio/mpeg" />
       </audio>
     </div>
