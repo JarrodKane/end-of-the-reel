@@ -26,7 +26,7 @@ const Player: React.FC<Props> = ({}) => {
   // Refernces
   const progressBar = useRef<HTMLInputElement | null>(null); //This is a refernce to the progressbar
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const animationRef = useRef<HTMLAudioElement | null | Number>(); // refernce to animation
+  const animationRef = useRef<number | HTMLAudioElement | null | undefined>(); // refernce to animation
 
   const togglePlayPause = () => {
     const prevValue = isPlaying;
@@ -37,7 +37,7 @@ const Player: React.FC<Props> = ({}) => {
         animationRef.current = requestAnimationFrame(whilePlaying);
       } else {
         audioRef.current.pause();
-        cancelAnimationFrame(animationRef.current);
+        // cancelAnimationFrame(animationRef.current);
       }
     }
   };
@@ -88,19 +88,23 @@ const Player: React.FC<Props> = ({}) => {
 
   // Only ran when the page loads or the episode changes
   useEffect(() => {
-    if (episode.length !== 0 && audioRef.current !== null) {
+    if (
+      episode.length !== 0 &&
+      audioRef.current !== null &&
+      progressBar.current !== null
+    ) {
       setEpSrc(episode);
       const seconds = Math.floor(audioRef.current.duration);
       setDuration(seconds);
-      progressBar.current.max = seconds;
+
+      progressBar.current.max = seconds as unknown as string;
     }
   }, [audioRef?.current?.onloadedmetadata, audioRef?.current?.readyState]);
 
   const changeRange = () => {
     if (audioRef.current !== null && progressBar.current !== null) {
-      audioRef.current.currentTime = progressBar.current.value;
-
-      setCurrentTime(progressBar.current.value);
+      audioRef.current.currentTime = parseInt(progressBar.current.value);
+      setCurrentTime(parseInt(progressBar.current.value));
     }
   };
 
@@ -128,7 +132,9 @@ const Player: React.FC<Props> = ({}) => {
         />
       </div>
       {/* Duration */}
-      <TimeDisp>{calculateTime(duration)}</TimeDisp>
+      <TimeDisp>
+        {duration && !isNaN(duration) ? calculateTime(duration) : `00:00`}
+      </TimeDisp>
       <audio
         ref={audioRef}
         className={`w-0`}
