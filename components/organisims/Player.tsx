@@ -120,7 +120,7 @@ const Player: React.FC<Props> = ({}) => {
 
   return (
     <div
-      className={` h-12   flex w-2/3 justify-items-center bg-gray-200 border border-indigo-600 border-double rounded-full items-center`}
+      className={` md:h-12 h-full flex md:w-2/3 w-full justify-items-center bg-gray-200 border   md:rounded-full items-center  border-indigo-600`}
     >
       <CtrlBtn>
         <BsArrowLeftShort

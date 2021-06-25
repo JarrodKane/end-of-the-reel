@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <ContentWrap>{children}</ContentWrap>
 
         <div
-          className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center bg-red-600 `}
+          className={` z-20 fixed inset-x-0 bottom-0 h-16 flex justify-center items-center `}
         >
           <Player />
         </div>
