@@ -19,7 +19,6 @@ import Hamburger from "../atoms/svg/Hamburger";
 import NavTitle from "../atoms/NavTitle";
 import LinkSlash from "../atoms/LinkSlash";
 import StyledLink from "../atoms/StyledLink";
-import ModalTest from "../organisims/ModalTest";
 
 import SocialIcons from "../molecules/SocialIcons";
 
