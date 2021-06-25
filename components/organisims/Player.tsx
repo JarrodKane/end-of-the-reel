@@ -12,10 +12,6 @@ import { TimeDisp } from "../atoms/player/TimeDisp";
 
 interface Props {}
 
-// TODO: You want the default most recent episode loaded in when someone first navigates to the site no matter whicih page they go to first. There might need to be a call to the API and then storing of the response in Context from the start?
-// If they go to a specific episode page, they can get that episodes url, but if they go to any other page, they can get the most recent episode
-// That only leaves Contact and About that will need to call the API to only get the most recent episode to set
-
 const Player: React.FC<Props> = ({}) => {
   const { episode, episodeCur, changeEpisodeNew } = useContext(PlayerContext);
   const [epSrc, setEpSrc] = useState(episode);
@@ -108,18 +104,40 @@ const Player: React.FC<Props> = ({}) => {
     }
   };
 
+  const thirty = (dir: boolean) => {
+    if (progressBar.current !== null) {
+      if (dir) {
+        const back = Number(progressBar.current.value) - 30;
+        progressBar.current.value = back.toString();
+        changeRange();
+      } else {
+        const forward = Number(progressBar.current.value) + 30;
+        progressBar.current.value = forward.toString();
+        changeRange();
+      }
+    }
+  };
+
   return (
     <div
       className={` h-12   flex w-2/3 justify-items-center bg-gray-200 border border-indigo-600 border-double rounded-full items-center`}
     >
       <CtrlBtn>
-        <BsArrowLeftShort />
+        <BsArrowLeftShort
+          onClick={() => {
+            thirty(true);
+          }}
+        />
       </CtrlBtn>
       <PlayBtn togglePlayPause={togglePlayPause}>
         {isPlaying ? <FaPause /> : <FaPlay className={`relative left-0.5`} />}
       </PlayBtn>
       <CtrlBtn>
-        <BsArrowRightShort />
+        <BsArrowRightShort
+          onClick={() => {
+            thirty(false);
+          }}
+        />
       </CtrlBtn>
       <TimeDisp>{calculateTime(currentTime)}</TimeDisp>
       <div className={"flex mx-2  flex-grow"}>
@@ -131,7 +149,6 @@ const Player: React.FC<Props> = ({}) => {
           className={`rounded-lg w-full flex-grow appearance-none text-purple-900 bg-green-500 h-3 cursor-pointer progressBar`}
         />
       </div>
-      {/* Duration */}
       <TimeDisp>
         {duration && !isNaN(duration) ? calculateTime(duration) : `00:00`}
       </TimeDisp>
